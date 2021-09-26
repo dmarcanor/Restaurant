@@ -57,4 +57,16 @@ final class ProductMother
             ProductStateMother::create($request->state())
         );
     }
+
+    public static function withCategory(string $category): Product
+    {
+        return self::create(
+            ProductIdMother::random(),
+            ProductNameMother::random(),
+            ProductCategoryMother::create($category),
+            ProductPriceMother::random(),
+            ProductAvailableMother::random(),
+            ProductStateMother::random()
+        );
+    }
 }

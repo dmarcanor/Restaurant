@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Sys\Restaurant\Products\Infrastructure\Persistance;
 
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Sys\Restaurant\Products\Domain\Contracts\ProductRepository;
 use Sys\Restaurant\Products\Domain\Entity\Product;
+use Sys\Restaurant\Products\Domain\ValueObjects\ProductId;
 
 final class MysqlProductRepository implements ProductRepository
 {
@@ -14,5 +16,25 @@ final class MysqlProductRepository implements ProductRepository
     {
         DB::table(Product::TABLE)
             ->insert($product->toArray());
+    }
+
+    public function update(Product $product): void
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function find(ProductId $id): ?Product
+    {
+        // TODO: Implement find() method.
+    }
+
+    public function matching(array $filters): array
+    {
+        $query = DB::table(Product::TABLE)
+            ->where(function (Builder $builder) use($filters) {
+                (new MysqlProductFilters())->apply($builder, $filters);
+            });
+
+        return $query->get()->toArray();
     }
 }

@@ -29,4 +29,19 @@ final class ProductsResponseMother
             ...$arrayResponse
         );
     }
+
+    public static function ByCategory(string $category, Product ...$products): ProductsResponse
+    {
+        $onlyCategory = array_filter($products, function (Product $product) use ($category) {
+            return $product->category()->value() === $category;
+        });
+
+        $arrayResponse = array_map(function (Product $product) {
+            return ProductResponseMother::fromEntity($product);
+        }, $onlyCategory);
+
+        return self::create(
+            ...$arrayResponse
+        );
+    }
 }

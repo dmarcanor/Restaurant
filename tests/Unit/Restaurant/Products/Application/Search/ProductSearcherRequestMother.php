@@ -16,7 +16,7 @@ final class ProductSearcherRequestMother
         );
     }
 
-    public function byCategory(string $category): ProductSearcherRequest
+    public static function byCategory(string $category): ProductSearcherRequest
     {
         return self::create(
             [

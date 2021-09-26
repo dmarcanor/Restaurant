@@ -9,9 +9,9 @@ use Tests\Unit\Shared\Domain\SelectMother;
 
 final class ProductCategoryMother
 {
-    public static function create(string $categoryId): ProductCategory
+    public static function create(string $category): ProductCategory
     {
-        return new ProductCategory($categoryId);
+        return new ProductCategory($category);
     }
 
     public static function random(): ProductCategory

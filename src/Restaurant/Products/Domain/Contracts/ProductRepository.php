@@ -14,4 +14,6 @@ interface ProductRepository
     public function update(Product $product): void;
 
     public function find(ProductId $id): ?Product;
+
+    public function matching(array $filters): array;
 }
