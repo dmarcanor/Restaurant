@@ -17,4 +17,9 @@ final class NumberMother
     {
         return Factory::create()->numberBetween(0, 50000);
     }
+
+    public static function randomWithMax(int $max): int
+    {
+        return Factory::create()->numberBetween(0, $max);
+    }
 }

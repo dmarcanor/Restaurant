@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Restaurant\Products\Application\Update;
 
-use Sys\Restaurant\Products\Application\Create\ProductCreatorRequest;
 use Sys\Restaurant\Products\Application\Update\ProductUpdaterRequest;
 use Tests\Unit\Restaurant\Products\Domain\ProductAvailableMother;
 use Tests\Unit\Restaurant\Products\Domain\ProductCategoryMother;

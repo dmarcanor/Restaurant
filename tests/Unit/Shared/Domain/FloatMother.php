@@ -15,6 +15,6 @@ final class FloatMother
 
     public static function randomPositive(): float
     {
-        return Factory::create()->randomFloat(2);
+        return Factory::create()->randomFloat(2, 1, 50000);
     }
 }
