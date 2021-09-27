@@ -14,4 +14,6 @@ interface OrderRepository
     public function update(Order $order): void;
 
     public function find(OrderId $id): ?Order;
+
+    public function matching(array $filters): array;
 }

@@ -59,4 +59,16 @@ final class OrderMother
             OrderItemsMother::create($request->items())
         );
     }
+
+    public static function withState(string $state): Order
+    {
+        return self::create(
+            OrderIdMother::random(),
+            OrderCodeMother::random(),
+            OrderTotalMother::random(),
+            TableIdMother::random(),
+            OrderStateMother::create($state),
+            OrderItemsMother::random()
+        );
+    }
 }
