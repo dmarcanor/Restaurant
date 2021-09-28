@@ -35,7 +35,7 @@ final class OrderSearcher
                 $order->total()->value(),
                 $order->tableId()->value(),
                 $order->state()->value(),
-                $order->items()->value(),
+                $order->items()->toArray(),
                 $order->createdAt()->value(),
                 $order->updatedAt()->value()
             );
