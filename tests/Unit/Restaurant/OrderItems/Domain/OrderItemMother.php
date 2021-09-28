@@ -41,7 +41,12 @@ final class OrderItemMother
         );
     }
 
-    public static function fromRequest(OrderCreatorRequest $request): array
+    public static function fromRequest(OrderItemCreatorRequest $request): array
+    {
+//        return self::create()
+    }
+
+    public static function fromOrderRequest(OrderCreatorRequest $request): array
     {
         return array_map(function ($item) {
             return self::create(
