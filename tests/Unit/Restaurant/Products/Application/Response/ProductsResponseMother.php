@@ -5,19 +5,19 @@ declare(strict_types=1);
 namespace Tests\Unit\Restaurant\Products\Application\Response;
 
 use Sys\Restaurant\Products\Application\Response\ProductResponse;
-use Sys\Restaurant\Products\Application\Response\OrdersResponse;
+use Sys\Restaurant\Products\Application\Response\ProductsResponse;
 use Sys\Restaurant\Products\Domain\Entity\Product;
 
 final class ProductsResponseMother
 {
-    public static function create(ProductResponse ...$products): OrdersResponse
+    public static function create(ProductResponse ...$products): ProductsResponse
     {
-        return new OrdersResponse(
+        return new ProductsResponse (
             ...$products
         );
     }
 
-    public  static function fromEntities(Product ...$products): OrdersResponse
+    public  static function fromEntities(Product ...$products): ProductsResponse
     {
         $arrayResponse = [];
 
@@ -30,7 +30,7 @@ final class ProductsResponseMother
         );
     }
 
-    public static function ByCategory(string $category, Product ...$products): OrdersResponse
+    public static function ByCategory(string $category, Product ...$products): ProductsResponse
     {
         $onlyCategory = array_filter($products, function (Product $product) use ($category) {
             return $product->category()->value() === $category;

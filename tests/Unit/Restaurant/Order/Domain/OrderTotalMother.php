@@ -17,7 +17,7 @@ final class OrderTotalMother
     public static function random(): OrderTotal
     {
         return self::create(
-            FloatMother::random()
+            FloatMother::randomPositive()
         );
     }
 }

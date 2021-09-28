@@ -8,7 +8,7 @@ use Sys\Restaurant\Products\Application\Seach\ProductSearcher;
 use Sys\Restaurant\Products\Domain\Contracts\ProductRepository;
 use Sys\Restaurant\Products\Domain\Entity\Product;
 use Tests\TestCase;
-use Tests\Unit\Restaurant\Products\Application\Response\OrdersResponserMother;
+use Tests\Unit\Restaurant\Products\Application\Response\ProductsResponseMother;
 use Tests\Unit\Restaurant\Products\Domain\ProductMother;
 
 final class ProductSeacherTest extends TestCase
@@ -21,7 +21,7 @@ final class ProductSeacherTest extends TestCase
         $product1 = ProductMother::random();
         $product2 = ProductMother::random();
         $product3 = ProductMother::withCategory('platillo');
-        $productsResponse = OrdersResponserMother::byCategory('platillo', $product1, $product2, $product3);
+        $productsResponse = ProductsResponseMother::byCategory('platillo', $product1, $product2, $product3);
 
         $repository = $this->createMock(ProductRepository::class);
         $searcher = new ProductSearcher($repository);
