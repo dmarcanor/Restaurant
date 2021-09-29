@@ -10,4 +10,6 @@ use Sys\Restaurant\Table\Domain\ValueObjects\TableId;
 interface TableRepository
 {
     public function find(TableId $id): ?Table;
+
+    public function matching(array $filters): array;
 }

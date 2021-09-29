@@ -13,6 +13,7 @@ final class TableResponseMother
         string $id,
         int $number,
         string $QR,
+        string $state,
         string $createdAt,
         string $updatedAt
     ): TableResponse
@@ -21,6 +22,7 @@ final class TableResponseMother
             $id,
             $number,
             $QR,
+            $state,
             $createdAt,
             $updatedAt
         );
@@ -32,6 +34,7 @@ final class TableResponseMother
             $table->id()->value(),
             $table->number()->value(),
             $table->QR()->value(),
+            $table->state()->value(),
             $table->createdAt()->value(),
             $table->updatedAt()->value()
         );

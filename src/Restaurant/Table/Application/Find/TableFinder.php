@@ -28,6 +28,7 @@ final class TableFinder
             $table->id()->value(),
             $table->number()->value(),
             $table->QR()->value(),
+            $table->state()->value(),
             $table->createdAt()->value(),
             $table->updatedAt()->value()
         );

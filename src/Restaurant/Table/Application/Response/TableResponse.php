@@ -9,6 +9,7 @@ final class TableResponse
     private $id;
     private $number;
     private $QR;
+    private $state;
     private $createdAt;
     private $updatedAt;
 
@@ -16,6 +17,7 @@ final class TableResponse
         string $id,
         int $number,
         string $QR,
+        string $state,
         string $createdAt,
         string $updatedAt
     )
@@ -23,6 +25,7 @@ final class TableResponse
         $this->id = $id;
         $this->number = $number;
         $this->QR = $QR;
+        $this->state = $state;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
     }
@@ -40,6 +43,11 @@ final class TableResponse
     public function QR(): string
     {
         return $this->QR;
+    }
+
+    public function state(): string
+    {
+        return $this->state;
     }
 
     public function createdAt(): string

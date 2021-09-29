@@ -7,6 +7,7 @@ namespace Sys\Restaurant\Table\Domain\Entity;
 use Sys\Restaurant\Table\Domain\ValueObjects\TableId;
 use Sys\Restaurant\Table\Domain\ValueObjects\TableNumber;
 use Sys\Restaurant\Table\Domain\ValueObjects\TableQR;
+use Sys\Restaurant\Table\Domain\ValueObjects\TableState;
 use Sys\Shared\Domain\ValueObjects\DateTimeValueObject;
 
 final class Table
@@ -14,6 +15,7 @@ final class Table
     private $id;
     private $number;
     private $QR;
+    private $state;
     private $createdAt;
     private $updatedAt;
 
@@ -21,6 +23,7 @@ final class Table
         TableId $id,
         TableNumber $number,
         TableQR $QR,
+        TableState $state,
         DateTimeValueObject $createdAt,
         DateTimeValueObject $updatedAt
     )
@@ -28,6 +31,7 @@ final class Table
         $this->id = $id;
         $this->number = $number;
         $this->QR = $QR;
+        $this->state = $state;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
     }
@@ -35,13 +39,15 @@ final class Table
     public static function create(
         TableId $id,
         TableNumber $number,
-        TableQR $QR
+        TableQR $QR,
+        TableState $state
     ): self
     {
         return new self(
             $id,
             $number,
             $QR,
+            $state,
             new DateTimeValueObject(),
             new DateTimeValueObject()
         );
@@ -60,6 +66,11 @@ final class Table
     public function QR(): TableQR
     {
         return $this->QR;
+    }
+
+    public function state(): TableState
+    {
+        return $this->state;
     }
 
     public function createdAt(): DateTimeValueObject
