@@ -9,4 +9,6 @@ use Sys\Restaurant\OrderItem\Domain\Entity\OrderItem;
 interface OrderItemRepository
 {
     public function create(OrderItem $orderItem): void;
+
+    public function update(OrderItem $orderItem): void;
 }

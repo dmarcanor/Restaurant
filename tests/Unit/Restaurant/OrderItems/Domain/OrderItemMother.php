@@ -41,20 +41,13 @@ final class OrderItemMother
         );
     }
 
-    public static function fromRequest(OrderItemCreatorRequest $request): array
+    public static function withId(string $value)
     {
-//        return self::create()
-    }
-
-    public static function fromOrderRequest(OrderCreatorRequest $request): array
-    {
-        return array_map(function ($item) {
-            return self::create(
-                $item['id'],
-                $item['orderId'],
-                $item['productId'],
-                $item['quantity'],
-            );
-        }, $request->items());
+        return self::create(
+            OrderItemIdMother::create($value),
+            OrderIdMother::random(),
+            ProductIdMother::random(),
+            OrderItemQuantityMother::random()
+        );
     }
 }
