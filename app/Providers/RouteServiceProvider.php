@@ -12,6 +12,7 @@ class RouteServiceProvider extends ServiceProvider
 {
     private $myCustomRouteFiles = [
         'src/Restaurant/Table/Infrastructure/config/routerWeb.php',
+        'src/Restaurant/Products/Infrastructure/config/routerWeb.php',
     ];
 
     /**

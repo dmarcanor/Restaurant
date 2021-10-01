@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sys\Restaurant\Products\Domain\Entity;
 
+use Illuminate\Support\Facades\Date;
 use Sys\Restaurant\Products\Domain\ValueObjects\ProductAvailable;
 use Sys\Restaurant\Products\Domain\ValueObjects\ProductCategory;
 use Sys\Restaurant\Products\Domain\ValueObjects\ProductId;
@@ -65,6 +66,29 @@ final class Product
             $state,
             new DateTimeValueObject(),
             new DateTimeValueObject()
+        );
+    }
+
+    public static function fromValues(
+        string $id,
+        string $name,
+        string $category,
+        float $price,
+        bool $available,
+        string $state,
+        string $created_at,
+        string $updated_at
+    ): self
+    {
+        return new self(
+            new ProductId($id),
+            new ProductName($name),
+            new ProductCategory($category),
+            new ProductPrice($price),
+            new ProductAvailable($available),
+            new ProductState($state),
+            new DateTimeValueObject($created_at),
+            new DateTimeValueObject($updated_at)
         );
     }
 

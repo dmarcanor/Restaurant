@@ -30,11 +30,24 @@ final class MysqlProductRepository implements ProductRepository
 
     public function matching(array $filters): array
     {
-        $query = DB::table(Product::TABLE)
+        $products = DB::table(Product::TABLE)
             ->where(function (Builder $builder) use($filters) {
                 (new MysqlProductFilters())->apply($builder, $filters);
-            });
+            })
+            ->get()
+            ->toArray();
 
-        return $query->get()->toArray();
+        return array_map(function (\stdClass $product) {
+            return Product::fromValues(
+                $product->id,
+                $product->name,
+                $product->category,
+                $product->price,
+                (bool)$product->available,
+                $product->state,
+                $product->created_at,
+                $product->updated_at
+            );
+        }, $products);
     }
 }

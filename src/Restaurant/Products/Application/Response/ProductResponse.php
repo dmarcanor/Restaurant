@@ -76,4 +76,17 @@ final class ProductResponse
         return $this->updated_at;
     }
 
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'category' => $this->category,
+            'price' => $this->price,
+            'available' => $this->available,
+            'state' => $this->state,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
+        ];
+    }
 }

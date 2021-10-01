@@ -17,4 +17,11 @@ final class ProductsResponse
     {
         return $this->products;
     }
+
+    public function toArray(): array
+    {
+        return array_map(function (ProductResponse $product) {
+            return $product->toArray();
+        }, $this->products);
+    }
 }

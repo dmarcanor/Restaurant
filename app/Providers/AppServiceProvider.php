@@ -3,13 +3,16 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Sys\Restaurant\Products\Domain\Contracts\ProductRepository;
+use Sys\Restaurant\Products\Infrastructure\Persistance\MysqlProductRepository;
 use Sys\Restaurant\Table\Domain\Contracts\TableRepository;
 use Sys\Restaurant\Table\Infrastructure\Persistence\MysqlTableRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
     private $wiringObjects = [
-        TableRepository::class => MysqlTableRepository::class
+        TableRepository::class => MysqlTableRepository::class,
+        ProductRepository::class => MysqlProductRepository::class
     ];
 
     /**
