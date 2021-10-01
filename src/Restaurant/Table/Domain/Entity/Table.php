@@ -12,6 +12,8 @@ use Sys\Shared\Domain\ValueObjects\DateTimeValueObject;
 
 final class Table
 {
+    const TABLE = 'tables';
+
     private $id;
     private $number;
     private $QR;
@@ -50,6 +52,25 @@ final class Table
             $state,
             new DateTimeValueObject(),
             new DateTimeValueObject()
+        );
+    }
+
+    public static function fromValues(
+        string $id,
+        int $number,
+        string $QR,
+        string $state,
+        string $createdAt,
+        string $updatedAt
+    ): Table
+    {
+        return new self(
+            new TableId($id),
+            new TableNumber($number),
+            new TableQR($QR),
+            new TableState($state),
+            new DateTimeValueObject($createdAt),
+            new DateTimeValueObject($updatedAt)
         );
     }
 

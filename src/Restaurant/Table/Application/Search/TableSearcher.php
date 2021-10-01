@@ -28,14 +28,14 @@ final class TableSearcher
 
     private function toResponse(): callable
     {
-        return function (Table $order) {
+        return function (Table $table) {
             return new TableResponse(
-                $order->id()->value(),
-                $order->number()->value(),
-                $order->QR()->value(),
-                $order->state()->value(),
-                $order->createdAt()->value(),
-                $order->updatedAt()->value()
+                $table->id()->value(),
+                $table->number()->value(),
+                $table->QR()->value(),
+                $table->state()->value(),
+                $table->createdAt()->value(),
+                $table->updatedAt()->value()
             );
         };
     }

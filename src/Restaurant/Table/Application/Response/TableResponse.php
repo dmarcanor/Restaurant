@@ -59,4 +59,16 @@ final class TableResponse
     {
         return $this->updatedAt;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'number' => $this->number,
+            'QR' => $this->QR,
+            'state' => $this->state,
+            'created_at' => $this->createdAt,
+            'updated_at' => $this->updatedAt
+        ];
+    }
 }

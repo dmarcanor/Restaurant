@@ -3,9 +3,15 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Sys\Restaurant\Table\Domain\Contracts\TableRepository;
+use Sys\Restaurant\Table\Infrastructure\Persistence\MysqlTableRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
+    private $wiringObjects = [
+        TableRepository::class => MysqlTableRepository::class
+    ];
+
     /**
      * Register any application services.
      *
@@ -23,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        foreach ($this->wiringObjects as $abstract => $implementation) {
+            $this->app->bind($abstract, $implementation);
+        }
     }
 }

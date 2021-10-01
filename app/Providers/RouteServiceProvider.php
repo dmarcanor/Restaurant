@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
+    private $myCustomRouteFiles = [
+        'src/Restaurant/Table/Infrastructure/config/routerWeb.php',
+    ];
+
     /**
      * The path to the "home" route for your application.
      *
@@ -35,6 +39,12 @@ class RouteServiceProvider extends ServiceProvider
             Route::prefix('api')
                 ->middleware('api')
                 ->group(base_path('routes/api.php'));
+
+            array_map(function ($file) {
+                Route::middleware('web')
+                    ->namespace($this->namespace)
+                    ->group(base_path($file));
+            }, $this->myCustomRouteFiles);
         });
     }
 

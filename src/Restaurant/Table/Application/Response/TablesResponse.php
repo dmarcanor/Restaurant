@@ -17,4 +17,11 @@ final class TablesResponse
     {
         return $this->tables;
     }
+
+    public function toArray(): array
+    {
+        return array_map(function (TableResponse $table) {
+            return $table->toArray();
+        }, $this->tables);
+    }
 }

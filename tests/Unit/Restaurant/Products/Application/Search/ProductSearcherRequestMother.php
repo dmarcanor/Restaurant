@@ -11,8 +11,7 @@ final class ProductSearcherRequestMother
     public static function create(array $filters): ProductSearcherRequest
     {
         return new ProductSearcherRequest(
-            $filters,
-            null, null, null, null
+            $filters
         );
     }
 

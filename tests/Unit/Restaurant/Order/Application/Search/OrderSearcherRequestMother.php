@@ -12,8 +12,7 @@ final class OrderSearcherRequestMother
     public static function create(array $filters): OrderSearcherRequest
     {
         return new OrderSearcherRequest(
-            $filters,
-            null, null, null, null
+            $filters
         );
     }
 
